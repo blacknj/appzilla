@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Appzilla</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+<div class="navbar">
+    <div class="navbar-inner custom-navbar">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </a>
+            <a class="brand custom-brand" href="index.html">
+                <!-- image brand -->
+                    <!-- <img src="img/logo.png" alt="Super slogan"> -->
+                <!-- text brand -->
+                StartupTheme<span class="brand-color">.</span>
+            </a>
+            <div class="nav-collapse in" style="height:auto;">
+                <ul class="nav pull-right">
+                    <li><a class="active" href="index.html">Home</a></li>
+                    <li><a href="tour.html">Tour</a></li>
+                    <li><a href="plans.html">Plans</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div><!-- /container -->
+    </div>
+</div><!-- /navbar -->
+
+
+<%= yield %>
+
+
+<footer>
+<div class="container">
+    <div class="row">
+        <div class="span3">
+            <h4>Latest Blog Post</h4><br />
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit nisl ac metus porta placerat... <a href="#">Read more &rarr;</a></p>
+        </div>
+        <div class="span3">
+            <h4>Quick Links</h4><br />
+            <div class="row">
+                <div class="span1">
+                    <ul class="unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="tour.html">Tour</a></li>
+                        <li><a href="#">Help Desk</a></li>
+                    </ul>
+                </div>
+                <div class="span1">
+                    <ul class="unstyled">
+                        <li><a href="plans.html">Plans</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="#">Privacy</a></li>
+                    </ul>
+                </div>
+                <div class="span1">
+                    <ul class="unstyled">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Terms</a></li>
+                    </ul>
+                </div>
+            </div><!-- /row -->
+        </div>
+        <div class="span3">
+            <h4>Contact Us!</h4><br />
+            <address>
+                <strong>StartupTheme, Inc.</strong><br />
+                795 Sea of Tranquility, Suite 600<br />
+                The Moon, MOON 94107
+            </address>
+        </div>
+        <div class="span3">
+            <h4>Newsletter</h4><br />
+            <p>Subscribe to our newsletter!</p>
+            <form id="form" class="form-inline">
+                <input type="text" value="" name="email" class="input-medium email" id="email" placeholder="Your email address">
+                <input type="submit" value="Subscribe" name="subscribe" class="btn btn-primary">
+            </form>
+        </div>
+    </div><!-- /row -->
+</div><!-- /container -->
+
+<div class="final-footer">
+    <div class="container">
+        <div class="row">
+            <div class="span4">
+                <p>&copy; <a href="#">StartupTheme</a> 2012, all right reserved.</p>
+            </div>
+            <div class="span8">
+                <ul class="footer-ul pull-right">
+                    <li class="inline"><a href="#">Help Desk</a></li>
+                    <li class="inline"><a href="#">Privacy Policy</a></li>
+                    <li class="inline"><a href="#">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</footer>
+
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="js/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="js/jquery.validate.js"></script>
+<script type="text/javascript" src="js/bootstrap-collapse.js"></script>
+<script type="text/javascript" src="js/bootstrap-tooltip.js"></script>
+<script src="js/jquery.cslider.js"></script>
+<script type="text/javascript">
+$('#da-slider').cslider({
+    current     : 0,
+    bgincrement : 50, // parallax
+    autoplay    : true,
+    interval    : 5000
+});
+$(document).ready(function(){
+    $("#form").validate({
+        rules: {
+            email: "required",
+        },
+        highlight: function(element, errClass) {
+            $("#email").tooltip('show');
+        },
+        unhighlight: function(element, errClass) {
+            $("#email").tooltip('hide');
+        },
+        errorPlacement: function(err, element) {
+            err.hide();
+        },
+    });
+    $("#email").tooltip({
+        placement: 'bottom',
+        trigger: 'manual',
+        title: 'Please insert a valid email address!',
+    });
+});
+</script>
+
+
+
+
+</body>
+</html>
